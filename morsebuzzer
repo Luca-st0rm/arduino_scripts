@@ -1,0 +1,30 @@
+#define BUZZER 10
+
+int dot = 200;        // duration of a dot
+int dash = dot * 3;   // duration of a dash
+int wordspace = dot * 7;
+int letspace = dot * 3;
+
+void setup() {
+  pinMode(BUZZER, OUTPUT);
+}
+
+void loop() {
+  beep(dot); beep(dot); beep(dot); beep(dot);
+  delay(letspace);
+  beep(dot);
+  delay(letspace);
+  beep(dot); beep(dash); beep(dot); beep(dot);
+  delay(letspace);
+  beep(dot); beep(dash); beep(dot); beep(dot);
+  delay(letspace);
+  beep(dash); beep(dash); beep(dash);
+  delay(wordspace);
+}
+
+void beep(int duration) {
+  tone(BUZZER, 1000);   // play sound
+  delay(duration);
+  noTone(BUZZER);       // stop sound
+  delay(dot);           // gap between parts
+}
