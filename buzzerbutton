@@ -1,0 +1,24 @@
+const int pino_botao1 = 7;
+const int pino_buzzer = 10; // pino onde o buzzer está conectado
+
+// Frequencias de cada nota musical
+
+const int c = 261; // Si
+
+void setup(){
+pinMode(pino_botao1, INPUT_PULLUP);
+
+  pinMode(pino_buzzer, OUTPUT); // configura o pino com o buzzer como saída
+}
+
+void loop(){
+ bool estado_botao1 = digitalRead(pino_botao1); 
+
+ if (estado_botao1 == LOW) {
+    tone(pino_buzzer, c); // Dó
+  delay(1);
+ }
+  else {
+    noTone(pino_buzzer); // desliga buzzer
+  }
+}
